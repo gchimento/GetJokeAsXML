@@ -1,0 +1,82 @@
+interface Deposits
+service CompoundInterestCalculator (
+    input {
+        String initialDeposit {
+            allowNull: false;
+            comment: "The starting lump-sum capital balance placed into the account at day zero before any interest is accrued or periodic contributions begin.";
+        };
+        String annualRate {
+            allowNull: false;
+            comment: "The nominal annual percentage yield (APY) offered on the deposit product, which the calculations break down based on compounding frequency parameters.";
+        };
+        String compoundingFrequency {
+            allowNull: false;
+            comment: "The numerical frequency code mapping how often interest is calculated and added back to the base principal balance per year (e.g., 1 for Annual, 4 for Quarterly, 12 for Monthly, 365 for Daily).";
+        };
+        String monthlyContribution {
+            required: false;
+            comment: "An optional recurring monthly cash injection added to the principal balance at the beginning or end of each calendar cycle to accelerate compounding growth.";
+        };
+        String horizonYears {
+            allowNull: false;
+            comment: "The overall duration of the investment timeline expressed in years, establishing the timeline bounds for the generation of the growth matrix.";
+        };
+    }
+    output {
+        recordList GrowthSchedule {
+            comment: """
+              For every year across the asset lifecycle, the engine will dynamically generate an annual line item tracking the following five properties:
+                            Year Number
+                            Starting Balance
+                            Total Annual Contributions
+                            Total Annual Interest Earned
+                            Ending Balance
+              """;
+        };
+        String totalPrincipalInvested {
+            comment: "The absolute sum of capital outlays provided by the depositor, calculated as the initial deposit plus all cumulative monthly contributions.";
+        };
+        String totalInterestEarned {
+            comment: "The cumulative wealth generated entirely by compound interest accruals over the horizon timeline.";
+        };
+        String finalBalance {
+            comment: "The comprehensive terminal asset valuation of the account at the end of the specified horizon years.";
+        };
+        String yieldMultiplier {
+            comment: "A growth metric indicating the ratio of the final balance relative to the total invested capital, reflecting overall wealth velocity.";
+        };
+    }
+)
+properties {
+    comment: "Calculates the growth trajectory of a savings or investment deposit account by applying compounding interest rules to a principal balance across a timeline.";
+    favorite: false;
+    deprecated: false;
+    visible: private;
+    reuse: private;
+    stateless: true;
+    cacheResults: false;
+    cacheExpire: 15;
+    prefetch: false;
+    prefetchActivation: 1;
+    pipelineDebug: None;
+    allowedHttpMethods: [TRACE, HEAD, DELETE, POST, GET, OPTIONS, PUT, PATCH];
+    maxRetryAttempts: 0;
+    retryInterval: 0;
+    enableAuditing: never;
+    logOn: Error only;
+    includePipeline: never;
+    circuitBreakerEnabled: false;
+    failureEvent: Exception only;
+    timeoutPeriod: 60;
+    cancelThreadOnTimeout: false;
+    failureThreshold: 5;
+    failurePeriod: 60;
+    circuitOpenAction: Throw exception;
+    circuitResetPeriod: 300;
+    concurrencyEnabled: false;
+    maxConcurrentRequests: 20;
+    validateInput: false;
+    validateOutput: false;
+}
+{
+}

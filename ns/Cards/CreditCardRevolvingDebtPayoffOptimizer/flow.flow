@@ -1,0 +1,75 @@
+interface Cards
+service CreditCardRevolvingDebtPayoffOptimizer (
+    input {
+        String statementBalance {
+            allowNull: false;
+            comment: "The current statement balance or active revolving credit debt targeted for tracking and elimination.";
+        };
+        String cardApr {
+            allowNull: false;
+            comment: "The annual percentage rate associated with the revolving account, reflecting how daily compound finance charges are handled.";
+        };
+        String minimumPaymentFormulaPercentage {
+            allowNull: false;
+            comment: "The percentage factor defined by cardholder terms used to calculate monthly minimum requirements (typically 1% to 3% of the outstanding balance plus current interest).";
+        };
+        String customFixedMonthlyBudget {
+            allowNull: false;
+            comment: "The proactive aggressive monthly payment value provided by the consumer to override basic minimum requirements and accelerate amortization.";
+        };
+    }
+    output {
+        recordList PayoffTimeline {
+            comment: """
+              A month-by-month structural ledger documenting the optimized velocity of the account payload, tracking the following five properties:
+                            Billing Cycle Month
+                            Beginning Statement Balance
+                            Applied Target Payment
+                            Accrued Finance Charge
+                            Ending Statement Balance
+              """;
+        };
+        String monthsToZeroBalance {
+            comment: "The total number of operational billing cycles required to fully eliminate the card balance under the customized target budget profile.";
+        };
+        String totalInterestAccrued {
+            comment: "The lifetime cost of holding the revolving balance across the payment velocity framework.";
+        };
+        String interestSavedByOptimization {
+            comment: "A comparison metric calculating the total finance charges saved by using the target fixed budget over making basic dynamic minimum payments.";
+        };
+    }
+)
+properties {
+    comment: "Models optimized multi-account repayment paths for credit card portfolios, comparing baseline minimum constraints against custom target overpayments.";
+    favorite: false;
+    deprecated: false;
+    visible: private;
+    reuse: private;
+    stateless: true;
+    cacheResults: false;
+    cacheExpire: 15;
+    prefetch: false;
+    prefetchActivation: 1;
+    pipelineDebug: None;
+    allowedHttpMethods: [TRACE, HEAD, DELETE, POST, GET, OPTIONS, PUT, PATCH];
+    maxRetryAttempts: 0;
+    retryInterval: 0;
+    enableAuditing: never;
+    logOn: Error only;
+    includePipeline: never;
+    circuitBreakerEnabled: false;
+    failureEvent: Exception only;
+    timeoutPeriod: 60;
+    cancelThreadOnTimeout: false;
+    failureThreshold: 5;
+    failurePeriod: 60;
+    circuitOpenAction: Throw exception;
+    circuitResetPeriod: 300;
+    concurrencyEnabled: false;
+    maxConcurrentRequests: 20;
+    validateInput: false;
+    validateOutput: false;
+}
+{
+}

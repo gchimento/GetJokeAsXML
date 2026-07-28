@@ -1,0 +1,76 @@
+interface Risk
+service DebtServiceCoverageRatioCalculator (
+    input {
+        String grossOperatingRevenue {
+            allowNull: false;
+            comment: "The comprehensive top-line gross cash income produced by the commercial entity or property asset before any operating expenses are deducted.";
+        };
+        String operatingExpenses {
+            allowNull: false;
+            comment: "The total cost of day-to-day operations (maintenance, insurance, taxes, utilities) excluding non-cash items like depreciation and financial debt obligations.";
+        };
+        String annualPrincipalPayments {
+            allowNull: false;
+            comment: "The baseline structural principal payback requirement specified across all outstanding and proposed term notes over a trailing 12-month window.";
+        };
+        String annualInterestPayments {
+            allowNull: false;
+            comment: "The cumulative interest expenses owed to creditors across the same 12-month operating window.";
+        };
+    }
+    output {
+        String netOperatingIncome {
+            allowNull: false;
+            comment: "The raw residual earnings of the asset, calculated as gross operating revenue minus total operating expenses, representing money available for debt service.";
+        };
+        String totalAnnualDebtService {
+            allowNull: false;
+            comment: "The absolute aggregate baseline cash requirement needed to service credit obligations (annual principal plus annual interest).";
+        };
+        String dscrMetric {
+            allowNull: false;
+            comment: "The finalized Debt Service Coverage Ratio multiplier. A value above 1.0 indicates positive cash coverage; values below 1.0 warn of operational cash deficiencies.";
+        };
+        String underwritingStatus {
+            allowNull: false;
+            comment: "A rule-driven status keyword flag mapping the result directly to institutional risk brackets (e.g., 'PASS', 'MARGINAL_RISK', 'CRITICAL_SHORTFALL').";
+        };
+        String safetyMarginCapital {
+            allowNull: false;
+            comment: "The raw cash cushion remaining in the pipeline after full debt requirements are satisfied, providing an absolute dollar metric of cash safety.";
+        };
+    }
+)
+properties {
+    comment: "Evaluates cash-flow sustainability for commercial credit underwriting by analyzing a company's Net Operating Income against its structural annual debt obligations.";
+    favorite: false;
+    deprecated: false;
+    visible: private;
+    reuse: private;
+    stateless: true;
+    cacheResults: false;
+    cacheExpire: 15;
+    prefetch: false;
+    prefetchActivation: 1;
+    pipelineDebug: None;
+    allowedHttpMethods: [TRACE, HEAD, DELETE, POST, GET, OPTIONS, PUT, PATCH];
+    maxRetryAttempts: 0;
+    retryInterval: 0;
+    enableAuditing: never;
+    logOn: Error only;
+    includePipeline: never;
+    circuitBreakerEnabled: false;
+    failureEvent: Exception only;
+    timeoutPeriod: 60;
+    cancelThreadOnTimeout: false;
+    failureThreshold: 5;
+    failurePeriod: 60;
+    circuitOpenAction: Throw exception;
+    circuitResetPeriod: 300;
+    concurrencyEnabled: false;
+    maxConcurrentRequests: 20;
+    validateInput: false;
+    validateOutput: false;
+}
+{
+}

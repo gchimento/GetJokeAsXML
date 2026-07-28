@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">raiseToPower</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJzb3IoKTsNClN0cmlu
+ZyBiYXNlID0gSURhdGFVdGlsLmdldFN0cmluZyggcGlwZWxpbmVDdXJzb3IsICJiYXNlIiApOw0K
+U3RyaW5nIGV4cG9uZW50ID0gSURhdGFVdGlsLmdldFN0cmluZyggcGlwZWxpbmVDdXJzb3IsICJl
+eHBvbmVudCIgKTsNCnBpcGVsaW5lQ3Vyc29yLmRlc3Ryb3koKTsNCg0KRG91YmxlIHZhbHVlID0g
+TWF0aC5wb3coRG91YmxlLnBhcnNlRG91YmxlKGJhc2UpLCBEb3VibGUucGFyc2VEb3VibGUoZXhw
+b25lbnQpKTsNCg0KSURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3JfMSA9IHBpcGVsaW5lLmdldEN1
+cnNvcigpOw0KSURhdGFVdGlsLnB1dCggcGlwZWxpbmVDdXJzb3JfMSwgInZhbHVlIiwgRG91Ymxl
+LnRvU3RyaW5nKHZhbHVlKSApOw0KcGlwZWxpbmVDdXJzb3JfMS5kZXN0cm95KCk7</value>
+</Values>
