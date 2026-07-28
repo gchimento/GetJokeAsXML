@@ -1,0 +1,1 @@
+{"exchange:GetJokeAsXML":{"references":"[ref=pub.client:http,path=/Flow Path;1.0/INVOKE;0, ref=pub.string:bytesToString,path=/Flow Path;1.0/INVOKE;1, ref=pub.json:jsonStringToDocument,path=/Flow Path;1.0/INVOKE;2, ref=pub.xmldata:xmlDataToXMLString,path=/Flow Path;1.0/INVOKE;3]","subType":"flow/default","type":"service"}}
