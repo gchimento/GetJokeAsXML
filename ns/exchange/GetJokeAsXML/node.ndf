@@ -21,46 +21,6 @@
       <value name="form_qualified">false</value>
       <value name="is_global">false</value>
       <array name="rec_fields" type="record" depth="1">
-        <record javaclass="com.wm.util.Values">
-          <value name="node_type">record</value>
-          <value name="node_subtype">unknown</value>
-          <value name="node_comment">The anchor or point of reference for the exchange rates. If left blank, it will default to USD.</value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_usereditable">false</value>
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-          </record>
-          <value name="is_public">false</value>
-          <value name="field_name">baseCurrency</value>
-          <value name="field_type">string</value>
-          <value name="field_dim">0</value>
-          <value name="field_opt">true</value>
-          <array name="field_options" type="value" depth="1">
-          </array>
-          <value name="nillable">true</value>
-          <value name="form_qualified">false</value>
-          <value name="is_global">false</value>
-        </record>
-        <record javaclass="com.wm.util.Values">
-          <value name="node_type">record</value>
-          <value name="node_subtype">unknown</value>
-          <value name="node_comment">The specific currency code you want to retrieve the rate for. If left blank, rates for all available currencies will be returned.</value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_usereditable">true</value>
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-          </record>
-          <value name="is_public">false</value>
-          <value name="field_name">targetCurrency</value>
-          <value name="field_type">string</value>
-          <value name="field_dim">0</value>
-          <value name="field_opt">true</value>
-          <array name="field_options" type="value" depth="1">
-          </array>
-          <value name="nillable">true</value>
-          <value name="form_qualified">false</value>
-          <value name="is_global">false</value>
-        </record>
       </array>
       <value name="modifiable">true</value>
     </record>
@@ -83,29 +43,18 @@
         <record javaclass="com.wm.util.Values">
           <value name="node_type">record</value>
           <value name="node_subtype">unknown</value>
-          <value name="node_comment">A list of currency conversion multipliers relative to the base currency.</value>
-          <record name="node_hints" javaclass="com.wm.util.Values">
-            <value name="field_largerEditor">false</value>
-            <value name="field_password">false</value>
-          </record>
           <value name="is_public">false</value>
-          <value name="field_name">exchangeRates</value>
-          <value name="field_type">record</value>
-          <value name="field_dim">1</value>
+          <value name="field_name">xmlOutput</value>
+          <value name="field_type">string</value>
+          <value name="field_dim">0</value>
           <value name="nillable">true</value>
           <value name="form_qualified">false</value>
           <value name="is_global">false</value>
-          <value name="is_soap_array_encoding_used">false</value>
-          <array name="rec_fields" type="record" depth="1">
-          </array>
-          <value name="rec_closed">true</value>
-          <value name="modifiable">true</value>
         </record>
       </array>
       <value name="modifiable">true</value>
     </record>
   </record>
-  <value name="node_comment">This service retrieves a list of current foreign exchange rates relative to a specified anchor currency, defaulting to USD if no base currency is provided. It allows users to optionally filter the results down to a single destination currency or return the entire collection of available currency pairs. The resulting data set is returned as a structured document list designed for seamless downstream mapping and conversions.</value>
   <value name="stateless">yes</value>
   <value name="caching">no</value>
   <value name="prefetch">no</value>
